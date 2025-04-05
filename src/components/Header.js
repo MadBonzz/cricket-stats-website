@@ -1,13 +1,27 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Link } from '@mui/material';
 
 const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h4" component="h1">
-          Cricket Match Centre
-        </Typography>
+        <Link
+          component={RouterLink}
+          to="/"
+          sx={{
+            flexGrow: 1,
+            textDecoration: 'none',
+            color: 'inherit',
+            '&:hover': {
+              textDecoration: 'none',
+            },
+          }}
+        >
+          <Typography variant="h6" component="div">
+            Cricket Match Centre
+          </Typography>
+        </Link>
       </Toolbar>
     </AppBar>
   );

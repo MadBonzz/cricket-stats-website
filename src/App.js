@@ -6,9 +6,9 @@ import {
   useParams
 } from "react-router-dom";
 import { Container, CssBaseline, ThemeProvider, createTheme, Typography } from '@mui/material';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
-import MatchSelector from './components/MatchSelector';
+
 import MatchSummary from './components/MatchSummary';
 import Scorecard from './components/Scorecard';
 import Visualizations from './components/Visualizations';
@@ -69,16 +69,16 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header />
-      <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Navbar matches={matches} />
         <Routes>
           <Route path="/" element={<HomePage matches={matches} />} />
           <Route path="/match/:matchId" element={<MatchDetails />} />
         </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
